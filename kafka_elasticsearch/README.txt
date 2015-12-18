@@ -2,21 +2,35 @@
 
 #https://www.elastic.co/guide/en/kibana/current/getting-started.html
 
-ES_URL=http://es-http-workthistime.apps.dev.aws.qtz.io
-KAFKA_URL=http://kafka-proxy-workthistime.apps.dev.aws.qtz.io
+ES_URL=http://es-http-demo.apps.dit.foundry.etrade.com
+KAFKA_URL=http://kafka-proxy-demo.apps.dit.foundry.etrade.com
 
-curl -XPUT $ES_URL/shakespeare -d '
+curl -XPUT $ES_URL/_template/shakespeare -d '
 {
- "mappings" : {
-  "_default_" : {
-   "properties" : {
-    "speaker" : {"type": "string", "index" : "not_analyzed" },
-    "play_name" : {"type": "string", "index" : "not_analyzed" },
-    "line_id" : { "type" : "integer" },
-    "speech_number" : { "type" : "integer" }
-   }
-  }
- }
+	"template": "shakespeare*",
+	"aliases": {
+		"shakespeare": {}
+	},
+	"mappings": {
+		"_default_": {
+			"properties": {
+				"speaker": {
+					"type": "string",
+					"index": "not_analyzed"
+				},
+				"play_name": {
+					"type": "string",
+					"index": "not_analyzed"
+				},
+				"line_id": {
+					"type": "integer"
+				},
+				"speech_number": {
+					"type": "integer"
+				}
+			}
+		}
+	}
 }
 ';
 
