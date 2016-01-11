@@ -1,2 +1,2 @@
-# quantezza-examples
-Example applications on Quantezza Data Foundry
+# Quantiply Data Foundry Examples
+Example applications on Quantiply Data Foundry

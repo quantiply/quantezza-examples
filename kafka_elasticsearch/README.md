@@ -4,6 +4,11 @@
 
 This example is derived from this [Kibana tutorial](https://www.elastic.co/guide/en/kibana/current/getting-started.html) but modified to load data into Kafka first before Elasticsearch.
 
+### Prerequisites
+
+* curl
+* [elasticdump](https://www.npmjs.com/package/elasticdump) (optional)
+
 ### Launch Components
 
 From the Quantiply Data Foundry web, console, launch:
@@ -72,3 +77,5 @@ From the UI, launch the Rico Elasticsearch Loader and enter these values for the
 elasticdump --input=kibana/mapping.json --output=$ES_URL/.kibana --type=mapping
 elasticdump --input=kibana/data.json --output=$ES_URL/.kibana --type=data
 ```
+
+## Load Kibana in browser and open the "Shakespeare" dashboard
